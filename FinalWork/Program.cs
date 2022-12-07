@@ -16,16 +16,16 @@ string[] CreateArrayRndString(int size)
     {
             "hello", "BOOOO!", "Yes", "No", "bye", "=')", "Russia", "USA", "O_O", "Japan", "Homework", "Git", "Lol", "fun", "Dotnet", "X_X", "Canada", "UK", "FBR", "NOOB!", "?"
     };
-    Console.Write("[");
+    
+    string[] newarray = new string[size];
+
     for (int i = 0; i < size; i++)
     {
-        int index = rnd.Next(size);
-        string entry = array[index];
-        if (i < size - 1) Console.Write($"{entry}| ");
-        else Console.Write($"{entry}] =>");
+        int index = rnd.Next(array.Length);
+        newarray[i] = array[index];
     }
-    
-    return array;
+
+    return newarray;
 }
 
 
@@ -35,16 +35,45 @@ void PrintArray(string[] arrayString)
     for (int i = 0; i < arrayString.Length; i++)
     {
         Console.Write($"\"{arrayString[i]}\"");
-        if (i < arrayString.Length - 1) Console.Write("| ");
+        if (i < arrayString.Length - 1) Console.Write(", ");
     }
     Console.Write("]");
 }
+
+// string[] CreaterArrayStringFilter(string[] arrayString, int filter)
+// {
+//     int size = 0;
+    
+//     for (int i = 0; i < arrayString.Length; i++)
+//     {
+//        if (arrayString[i].Length <= filter)
+//         {
+//             size++;
+//         }            
+//     }  
+//     string[] selArrStr = new string[size];
+//      int count = 0; 
+//      for (int i = 0; i < arrayString.Length; i++)
+//     {
+//         if (arrayString[i].Length <= filter)
+//         {
+//             selArrStr[count] = arrayString[i];
+//             count++;
+//         }
+//     }
+//     return selArrStr;
+// }
+
 
 Console.Clear();
 
 Console.WriteLine("Введите количество элементов массива:");
 int arraySize = Convert.ToInt32(Console.ReadLine());
-
+Console.WriteLine("Введите требуемое максимальное количество символов:");
+int arrayfilter = Convert.ToInt32(Console.ReadLine());
 
 string[] arrayStrings = CreateArrayRndString(arraySize);
-// PrintArray(arrayStrings);
+PrintArray(arrayStrings);
+Console.Write(" => ");
+// string[] newArrayStrings = CreaterArrayStringFilter(arrayStrings, arrayfilter);
+// PrintArray(newArrayStrings);
