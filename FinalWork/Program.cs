@@ -16,7 +16,7 @@ string[] CreateArrayRndString(int size)
     {
             "hello", "BOOOO!", "Yes", "No", "bye", "=')", "Russia", "USA", "O_O", "Japan", "Homework", "Git", "Lol", "fun", "Dotnet", "X_X", "Canada", "UK", "FBR", "NOOB!", "?"
     };
-    
+
     string[] newarray = new string[size];
 
     for (int i = 0; i < size; i++)
@@ -40,29 +40,33 @@ void PrintArray(string[] arrayString)
     Console.Write("]");
 }
 
-// string[] CreaterArrayStringFilter(string[] arrayString, int filter)
-// {
-//     int size = 0;
-    
-//     for (int i = 0; i < arrayString.Length; i++)
-//     {
-//        if (arrayString[i].Length <= filter)
-//         {
-//             size++;
-//         }            
-//     }  
-//     string[] selArrStr = new string[size];
-//      int count = 0; 
-//      for (int i = 0; i < arrayString.Length; i++)
-//     {
-//         if (arrayString[i].Length <= filter)
-//         {
-//             selArrStr[count] = arrayString[i];
-//             count++;
-//         }
-//     }
-//     return selArrStr;
-// }
+string[] CreaterArrayStringFilter(string[] arrayString, int filter)
+{
+    int size = 0;
+
+    for (int i = 0; i < arrayString.Length; i++)
+    {
+        if (arrayString[i].Length <= filter)
+        {
+            size++;
+
+        }
+    }
+
+    string[] selArrStr = new string[size];
+    int count = 0;
+
+    for (int i = 0; i < arrayString.Length; i++)
+    {
+        if (arrayString[i].Length <= filter)
+        {
+            selArrStr[count] = arrayString[i];
+            count++;
+        }
+    }
+
+    return selArrStr;
+}
 
 
 Console.Clear();
@@ -75,5 +79,5 @@ int arrayfilter = Convert.ToInt32(Console.ReadLine());
 string[] arrayStrings = CreateArrayRndString(arraySize);
 PrintArray(arrayStrings);
 Console.Write(" => ");
-// string[] newArrayStrings = CreaterArrayStringFilter(arrayStrings, arrayfilter);
-// PrintArray(newArrayStrings);
+string[] newArrayStrings = CreaterArrayStringFilter(arrayStrings, arrayfilter);
+PrintArray(newArrayStrings);
